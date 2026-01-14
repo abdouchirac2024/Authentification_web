@@ -53,12 +53,12 @@ export const LoginPage = () => {
                         error={errors.password?.message}
                     />
                     <div className="flex justify-end">
-                        <button
-                            type="button"
+                        <Link
+                            to="/forgot-password"
                             className="text-white/40 hover:text-white/60 text-xs transition-colors"
                         >
                             Forgot password?
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
