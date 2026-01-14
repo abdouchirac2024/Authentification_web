@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: abdouauth
+    runtime: static
+    buildCommand: npm run build
+    publishDir: dist
+    routes:
+      - source: /.*
+        destination: /index.html
