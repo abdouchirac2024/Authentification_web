@@ -46,6 +46,7 @@ export const ForgotPasswordPage = () => {
                         placeholder="Enter your phone"
                         icon={<Phone size={18} />}
                         error={errors.phone?.message}
+                        isNumeric
                     />
                 </motion.div>
 
