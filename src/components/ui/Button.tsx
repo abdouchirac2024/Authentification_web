@@ -9,17 +9,17 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = 'primary', isLoading, children, ...props }, ref) => {
         const variants = {
-            primary: 'bg-brand-primary hover:bg-brand-secondary text-white shadow-lg shadow-brand-primary/20',
-            secondary: 'bg-white/10 hover:bg-white/20 text-white',
-            outline: 'border border-white/10 hover:bg-white/5 text-white',
-            ghost: 'hover:bg-white/5 text-white',
+            primary: 'bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] hover:scale-[1.02]',
+            secondary: 'bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.05]',
+            outline: 'border border-white/[0.1] hover:bg-white/[0.05] text-white',
+            ghost: 'hover:bg-white/[0.05] text-white',
         };
 
         return (
             <button
                 ref={ref}
                 className={cn(
-                    'w-full flex items-center justify-center px-4 py-3 rounded-xl font-semibold transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed',
+                    'w-full flex items-center justify-center px-6 py-4 rounded-2xl font-bold tracking-wide transition-all duration-300 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed',
                     variants[variant],
                     className
                 )}

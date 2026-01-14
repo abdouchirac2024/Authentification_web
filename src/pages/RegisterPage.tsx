@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { User, Phone, Lock } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -39,8 +40,13 @@ export const RegisterPage = () => {
             title="Registration"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fames consequat eros, diam, eu morbi vehicula."
         >
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                >
                     <Input
                         {...register('name')}
                         placeholder="Name"
@@ -53,44 +59,73 @@ export const RegisterPage = () => {
                         icon={<User size={18} />}
                         error={errors.surname?.message}
                     />
-                </div>
+                </motion.div>
 
-                <Input
-                    {...register('phone')}
-                    placeholder="Phone"
-                    icon={<Phone size={18} />}
-                    error={errors.phone?.message}
-                />
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                >
+                    <Input
+                        {...register('phone')}
+                        placeholder="Phone"
+                        icon={<Phone size={18} />}
+                        error={errors.phone?.message}
+                    />
+                </motion.div>
 
-                <Input
-                    {...register('password')}
-                    type="password"
-                    placeholder="Password"
-                    icon={<Lock size={18} />}
-                    error={errors.password?.message}
-                />
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.5 }}
+                >
+                    <Input
+                        {...register('password')}
+                        type="password"
+                        placeholder="Password"
+                        icon={<Lock size={18} />}
+                        error={errors.password?.message}
+                    />
+                </motion.div>
 
-                <Input
-                    {...register('confirmPassword')}
-                    type="password"
-                    placeholder="Confirm password"
-                    icon={<Lock size={18} />}
-                    error={errors.confirmPassword?.message}
-                />
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                >
+                    <Input
+                        {...register('confirmPassword')}
+                        type="password"
+                        placeholder="Confirm password"
+                        icon={<Lock size={18} />}
+                        error={errors.confirmPassword?.message}
+                    />
+                </motion.div>
 
-                <Button type="submit" isLoading={isSubmitting} className="mt-4">
-                    Sign In
-                </Button>
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.9, duration: 0.5 }}
+                >
+                    <Button type="submit" isLoading={isSubmitting} className="mt-4">
+                        Sign In
+                    </Button>
+                </motion.div>
 
-                <p className="text-center text-sm text-white/40">
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 0.5 }}
+                    className="text-center text-sm text-white/20"
+                >
                     Have account?{' '}
                     <Link
                         to="/login"
-                        className="text-brand-primary hover:text-brand-secondary font-medium transition-colors"
+                        className="text-brand-primary hover:text-brand-secondary font-bold transition-colors"
                     >
                         Connect
                     </Link>
-                </p>
+                </motion.p>
             </form>
         </AuthLayout>
     );
